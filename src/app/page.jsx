@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <div className=" bg-white text-black" >
-        {/* <Banner /> */}
+        <Banner />
         <ToggleDogCat />
         <Everyday />
         <Wellness />

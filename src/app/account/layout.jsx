@@ -7,17 +7,17 @@ import AccountSideBar from '@/components/AccountSideBar'
 import MobileAccountNav from '@/components/MobileAccountNav'
 
 export default function AccountLayout({ children }) {
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
-  const router = useRouter()
+  // const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+  // const router = useRouter()
 
-  useEffect(() => {
-    if (!isAuthenticated) router.replace('/login')
-  }, [isAuthenticated, router])
+  // useEffect(() => {
+  //   if (!isAuthenticated) router.replace('/login')
+  // }, [isAuthenticated, router])
 
-  if (!isAuthenticated) return null
+  // if (!isAuthenticated) return null
 
   return (
-    <div className="mx-auto min-h-screen max-w-7xl">
+    <div className="mx-auto max-w-7xl">
 
       <div className="flex">
         {/* Desktop Sidebar */}
@@ -26,7 +26,7 @@ export default function AccountLayout({ children }) {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 bg-white py-10">
+        <main className="flex-1 bg-white md:py-10">
           {children}
         </main>
       </div>

@@ -7,13 +7,13 @@ const MyOrders = () => {
   const orders = dummyOrders
 
   return (
-    <div className="bg-white border border-gray-100 rounded-[32px] p-8 shadow-sm">
-      <h2 className="text-2xl font-extrabold text-gray-900 mb-6">
+    <div className="bg-white border border-gray-100 md:rounded-[32px] md:p-8 pb-6 shadow-sm">
+      <h2 className="text-2xl font-extrabold text-gray-900 mb-3 pt-3 pl-3">
         My Orders
       </h2>
 
       {/* Search & Filter */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex gap-4 mb-8 px-3 ">
         <div className="relative flex-1">
           <HiOutlineSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <input
@@ -38,7 +38,7 @@ const MyOrders = () => {
               key={order._id}
               href={`/account/orders/order-details/${order._id}`}
             >
-              <div className="flex flex-col md:flex-row gap-6 p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50/30 rounded-2xl transition">
+              <div className="flex md:flex-row gap-6 p-4 border-b  border-gray-50 last:border-0 hover:bg-gray-50/30 rounded-2xl transition">
                 <div className="w-24 h-24 shrink-0 rounded-xl bg-gray-50 overflow-hidden">
                   <img
                     src={product.image}
@@ -48,11 +48,11 @@ const MyOrders = () => {
                 </div>
 
                 <div className="flex-1">
-                  <h4 className="text-sm font-bold text-gray-800 leading-tight mb-1">
+                  <h4 className="text-sm font-medium text-gray-800 leading-tight mb-1">
                     {product.name}
                   </h4>
 
-                  <p className="text-sm font-bold text-gray-900 mb-4">
+                  <p className="text-sm font-medium text-gray-900 mb-4">
                     Order ID: {order._id}
                   </p>
 

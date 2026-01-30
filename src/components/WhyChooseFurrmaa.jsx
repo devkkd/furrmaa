@@ -1,4 +1,5 @@
 "use client"
+import { questions } from "@/data/faqs";
 import { useState } from "react";
 import React from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
@@ -129,28 +130,7 @@ function DownloadApk() {
 
 
 function FaqSection() {
-  const faqs = [
-    {
-      q: "What is Furrmaa?",
-      a: "Furrmaa is a mobile app that connects pet owners with a variety of pet-related services – from vet clinics to adoption, events, chat support, pet cremation requests, and more.",
-    },
-    {
-      q: "Do I need an account to use Furrmaa?",
-      a: "Yes, to manage pet profiles, request services, and use personalized features, you need to create an account.",
-    },
-    {
-      q: "What kind of services can I find on Furrmaa?",
-      a: "You can access veterinary clinics, adoption and lost & found services, pet events, cremation requests, pet-profile management, and a premium Pet AI Chatbot.",
-    },
-    {
-      q: "How does location-based search work?",
-      a: "With your permission, Furrmaa uses your current location to show nearby veterinary clinics and services – helping you find help quickly when needed.",
-    },
-    {
-      q: "Is my personal and pet information safe?",
-      a: "Yes. We follow industry-standard security practices, do not sell your data, and only share it with trusted partners when necessary to deliver services you request.",
-    },
-  ];
+  const faqs = questions;
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -185,19 +165,22 @@ function FaqSection() {
                 </h4>
 
                 <span
-                  className={`ml-4 w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-black transition-transform ${
-                    activeIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`ml-4 w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-black transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                    }`}
                 >
                   <MdArrowDropDown />
                 </span>
               </button>
 
-              {activeIndex === index && (
-                <p className="text-gray-600 mt-4 leading-relaxed">
+              {/* Smooth Expandable Transition */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${activeIndex === index ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"
+                  }`}
+              >
+                <p className="text-gray-600 leading-relaxed">
                   {item.a}
                 </p>
-              )}
+              </div>
             </div>
           ))}
 

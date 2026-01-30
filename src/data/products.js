@@ -142,3 +142,34 @@ export const products = [
   }
 
 ];
+
+// {
+//     name: "Premium Dog Dry Food",
+//     description: "High protein dry food made for adult dogs to support strong muscles and digestion.",
+//     category: "food",
+//     petType: ["dog"],
+//     price: 2499,
+//     discountPrice: 2199,
+//     images: [
+//       "https://example.com/images/dog-food-1.jpg",
+//       "https://example.com/images/dog-food-2.jpg"
+//     ],
+//     stock: 120,
+//     brand: "PetCare Plus",
+//     rating: 4.5,
+//     reviews: [
+//       {
+//         user: "65f1c2a9e3a8b4d9f1234567",
+//         rating: 5,
+//         comment: "My dog loves it. Good quality.",
+//         date: "2025-01-10T10:30:00.000Z"
+//       },
+//       {
+//         user: "65f1c2a9e3a8b4d9f7654321",
+//         rating: 4,
+//         comment: "Good product but slightly expensive.",
+//         date: "2025-01-12T14:20:00.000Z"
+//       }
+//     ],
+//     isActive: true
+//   },

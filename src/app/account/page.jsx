@@ -94,11 +94,11 @@ const AccountSettings = () => {
     };
 
     return (
-        <section className="bg-white h-full p-8">
+        <section className="bg-white h-full">
             <Container>
                 {/* Main Settings Card */}
-                <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-sm">
-                    <div className="p-8 md:p-12">
+                <div className="bg-white border border-gray-100 md:rounded-[32px] overflow-hidden shadow-sm">
+                    <div className="p-6 md:p-12">
                         <h1 className="text-3xl font-extrabold text-gray-900 mb-10">My Account</h1>
 
                         <div className="flex flex-col lg:flex-row gap-12">

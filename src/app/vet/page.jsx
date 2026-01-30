@@ -20,104 +20,117 @@ const Vet = () => {
     });
 
     return (
-        <section className="bg-white py-8">
+        <section className="bg-white py-6 md:py-8">
             <Container>
-                {/* Top Header Section */}
-                <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-center justify-between mb-8">
-                    <h1 className="text-4xl font-extrabold text-gray-900 shrink-0">Vet Services</h1>
+                <div className='px-6'>
+                    {/* Top Header Section */}
 
-                    <div className="flex flex-wrap items-center gap-3 w-full xl:w-auto">
-                        {/* Search Bar */}
-                        <div className="relative flex-grow max-w-md">
-                            <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
-                            <input
-                                type="text"
-                                placeholder="Search Vet Services"
-                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg bg-gray-50 focus:outline-none text-sm"
-                            />
-                        </div>
+                    <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-center justify-between mb-6 md:mb-8">
+                        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 shrink-0">Vet Services</h1>
 
-                        {/* Sort By Dropdown */}
-                        <button className="flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-600 bg-white hover:bg-gray-50 transition">
-                            <span>Sort By</span>
-                            <LuArrowUpDown className="text-gray-400" />
-                        </button>
-
-                        {/* Location Picker */}
-                        <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-1 bg-white shadow-sm">
-                            <HiOutlineLocationMarker className="text-gray-400 text-lg" />
-                            <span className="text-xs text-gray-600 font-medium truncate max-w-[150px]">
-                                Pratap Nagar, Jaipur
-                            </span>
-                            <button className="bg-[#95E562] text-black text-[10px] font-bold px-3 py-1 rounded-md uppercase hover:opacity-90">
-                                Change
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Categories Horizontal Scroll */}
-                <div className="flex items-center gap-2 overflow-x-auto pb-6 custom-scrollbar scrollbar-hide">
-                    {categories.map((cat, idx) => (
-                        <button
-                            key={idx}
-                            className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium transition-all
-                                ${idx === 0
-                                    ? 'bg-[#1e293b] text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Services Grid */}
-<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
-                    {serviceProviders.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className={`flex flex-col sm:flex-row gap-4 p-4 bg-white border rounded-2xl transition-all hover:shadow-md
-                                ${idx === 2 ? 'border-blue-500 ring-1 ring-blue-500' : 'border-gray-100'}`}
-                        >
-                            {/* Image Placeholder */}
-                            <div className="w-full sm:w-32 h-32 shrink-0 rounded-xl overflow-hidden bg-gray-100">
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    className="w-full h-full object-cover"
+                        <div className="flex flex-wrap items-center gap-3 w-full xl:w-auto">
+                            {/* Search Bar */}
+                            <div className="relative flex-grow w-full md:w-auto md:max-w-md">
+                                <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                                <input
+                                    type="text"
+                                    placeholder="Search Vet Services"
+                                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-300 text-sm"
                                 />
                             </div>
 
-                            {/* Content */}
-                            <div className="flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 className="text-lg font-bold text-gray-900 uppercase">{item.name}</h3>
-                                    <div className="flex items-center gap-1 text-gray-400 text-xs mb-2">
-                                        <HiOutlineLocationMarker />
-                                        <span>{item.distance}</span>
-                                    </div>
-                                    <p className="text-[11px] text-gray-500 leading-relaxed line-clamp-2">
-                                        {item.address}
-                                    </p>
-                                </div>
+                            {/* Controls Row for Mobile */}
+                            <div className="flex items-center gap-2 w-full md:w-auto">
+                                {/* Sort By */}
+                                <button className="flex items-center justify-center gap-2 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-600 bg-white hover:bg-gray-50 transition flex-1 md:flex-none">
+                                    <span>Sort By</span>
+                                    <LuArrowUpDown className="text-gray-400" />
+                                </button>
 
-                                <div className="flex items-center gap-4 mt-4">
-                                    <button className="flex items-center justify-center gap-2 bg-[#8B5FBF] text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-[#7c3aed] transition w-full sm:w-auto">
-                                        <HiPhone className="text-sm" />
-                                        Call
-                                    </button>
-                                    <button className="flex items-center gap-2 text-gray-600 text-xs font-bold hover:text-gray-900 transition">
-                                        <RiDirectionLine className="text-lg" />
-                                        Direction
+                                {/* Location Picker */}
+                                <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-1.5 bg-white shadow-sm flex-1 md:flex-none justify-between md:justify-start">
+                                    <div className="flex items-center gap-1 overflow-hidden">
+                                        <HiOutlineLocationMarker className="text-gray-400 text-lg shrink-0" />
+                                        <span className="text-xs text-gray-600 font-medium truncate max-w-[100px] md:max-w-[150px]">
+                                            Pratap Nagar, Jaipur
+                                        </span>
+                                    </div>
+                                    <button className="bg-[#95E562] text-black text-[10px] font-bold px-3 py-1 rounded-lg uppercase hover:opacity-90 shrink-0">
+                                        Change
                                     </button>
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Categories Horizontal Scroll */}
+                    <div className="flex items-center gap-3 overflow-x-auto pb-6 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar">
+                        {categories.map((cat, idx) => (
+                            <button
+                                key={idx}
+                                className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium transition-all
+                                ${idx === 0
+                                        ? 'bg-[#1e293b] text-white shadow-md'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Services Grid: 1 Column Mobile, 2 Columns Desktop */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        {serviceProviders.map((item, idx) => (
+                            <div
+                                key={idx}
+                                className={`flex flex-row gap-3 p-3 md:gap-4 md:p-4 bg-white border rounded-2xl transition-all hover:shadow-md
+                                ${idx === 2 ? 'border-blue-500 ring-1 ring-blue-500' : 'border-gray-100'}`}
+                            >
+                                {/* Image Placeholder - Fixed Size on Mobile */}
+                                <div className="w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-xl overflow-hidden bg-gray-100">
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+
+                                {/* Content */}
+                                <div className="flex-1 flex flex-col justify-between min-w-0">
+                                    <div>
+                                        <h3 className="text-base md:text-lg font-extrabold text-gray-900 uppercase truncate leading-tight mb-1">
+                                            {item.name}
+                                        </h3>
+
+                                        <div className="flex items-center gap-1 text-gray-400 text-xs mb-1.5 font-medium">
+                                            <HiOutlineLocationMarker className="shrink-0" />
+                                            <span className="truncate">{item.distance}</span>
+                                        </div>
+
+                                        <p className="text-[10px] md:text-[11px] text-gray-500 leading-relaxed line-clamp-2 font-medium">
+                                            {item.address}
+                                        </p>
+                                    </div>
+
+                                    {/* Buttons Row */}
+                                    <div className="flex items-center gap-3 mt-3">
+                                        <button className="flex items-center justify-center gap-1.5 bg-[#8B5FBF] text-white px-4 py-2 rounded-full text-[11px] md:text-xs font-bold hover:bg-[#7c3aed] transition shadow-sm min-w-[80px]">
+                                            <HiPhone className="text-sm" />
+                                            Call
+                                        </button>
+
+                                        <button className="flex items-center gap-1.5 text-gray-600 text-[11px] md:text-xs font-bold hover:text-gray-900 transition">
+                                            <RiDirectionLine className="text-lg" />
+                                            Direction
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </Container>
             <WhyChooseFurrmaa />
-
         </section>
     );
 };

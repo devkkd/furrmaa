@@ -161,6 +161,7 @@ export default function Header() {
           <Link href="/events" className="flex items-center gap-4"><FaCalendarAlt /> Pet Events</Link>
         </div>
       </div>
+      
 
       {/* DESKTOP NAV */}
       <nav className="w-full bg-white border-b border-gray-300 hidden md:block">

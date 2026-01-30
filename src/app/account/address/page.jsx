@@ -28,10 +28,10 @@ const MyAddress = () => {
     ];
 
     return (
-        <section className="bg-white py-10 min-h-screen">
+        <section className="bg-white md:py-10 min-h-screen">
             <Container>
                 {/* Main Card Wrapper */}
-                <div className="bg-white border border-gray-100 rounded-[32px] p-8 md:p-12 shadow-sm min-h-[600px]">
+                <div className="bg-white md:border border-gray-100 md:rounded-[32px] p-5 md:p-12 md:shadow-sm min-h-[600px]">
                     
                     {/* Header with Add Button */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">

@@ -8,12 +8,12 @@ import { useAuthStore } from '@/store/authStore'
 import { useRouter } from 'next/navigation'
 
 
-const DUMMY_OTP = ''
+const DUMMY_OTP = '4321'
 
 const AuthPage = () => {
     const login = useAuthStore((state) => state.login)
 
-    const [step, setStep] = useState('OTP') // PHONE | OTP
+    const [step, setStep] = useState('PHONE') // PHONE | OTP
     const [phone, setPhone] = useState('')
     const [otp, setOtp] = useState('')
     const [error, setError] = useState('')

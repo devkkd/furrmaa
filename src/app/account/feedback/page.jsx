@@ -22,7 +22,7 @@ const ShareFeedback = () => {
     };
 
     return (
-        <div className="bg-white border border-gray-100 rounded-[32px] p-8 md:p-12 shadow-sm min-h-[600px]">
+        <div className="bg-white border border-gray-100 md:rounded-[32px] p-8 md:p-12 shadow-sm min-h-[600px]">
             {/* Header */}
             <header className="mb-10">
                 <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Share Feedback</h1>

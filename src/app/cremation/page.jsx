@@ -1,0 +1,116 @@
+import React from 'react';
+import Container from '@/components/Container';
+import { HiOutlineLocationMarker, HiOutlineSearch, HiPhone } from 'react-icons/hi';
+import { RiDirectionLine } from 'react-icons/ri';
+import { LuArrowUpDown } from 'react-icons/lu';
+import Link from 'next/link';
+import cremationCenters from "@/data/cremationCenter";
+
+const CremationServices = () => {
+    const services = cremationCenters;
+
+    return (
+        <section className="bg-white py-6 px-4 md:px-0 md:py-10 min-h-screen">
+            <Container>
+                {/* Header Section: Title and Controls */}
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start lg:items-center justify-between mb-6 md:mb-8">
+                    <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+                        Cremation
+                    </h1>
+
+                    {/* Controls Group */}
+                    <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+                        {/* Search Bar */}
+                        <div className="relative w-full sm:w-64 md:w-80">
+                            <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
+                            <input
+                                type="text"
+                                placeholder="Search Cremation"
+                                className="w-full pl-10 pr-4 py-2.5 border border-gray-100 rounded-xl bg-gray-50/50 focus:outline-none focus:ring-1 focus:ring-gray-200 text-sm transition-all"
+                            />
+                        </div>
+
+                        {/* Controls Row for Mobile */}
+                        <div className="flex items-center gap-2 w-full sm:w-auto">
+                            {/* Sort Toggle */}
+                            <button className="flex items-center justify-center gap-2 border border-gray-100 rounded-xl px-4 py-2.5 text-sm text-gray-600 bg-white hover:bg-gray-50 transition flex-1 sm:flex-none font-medium">
+                                <span>Sort By</span>
+                                <LuArrowUpDown className="text-gray-400" />
+                            </button>
+
+                            {/* Location Pill */}
+                            <div className="flex items-center gap-2 border border-gray-100 rounded-xl px-3 py-1.5 bg-white shadow-sm flex-1 sm:flex-none justify-between sm:justify-start">
+                                <div className="flex items-center gap-1">
+                                    <HiOutlineLocationMarker className="text-gray-400 text-lg shrink-0" />
+                                    <span className="text-xs text-gray-600 font-bold truncate max-w-[100px] sm:max-w-[120px]">
+                                        Pratap Nagar, Jaipur
+                                    </span>
+                                </div>
+                                <button className="bg-[#a3e635] text-white text-[10px] font-extrabold px-3 py-1 rounded-lg uppercase hover:opacity-90 transition shadow-sm shrink-0">
+                                    Change
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Services Grid: 1 column on mobile, 2 columns on tablets/desktops */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    {services.map((service, idx) => (
+                        <div
+                            key={idx}
+                            // Changed: 'flex-row' for all screens (image always left), adjusted gap and padding for mobile
+                            className="flex flex-row gap-3 p-3 md:gap-5 md:p-5 bg-white border border-gray-100 rounded-[20px] md:rounded-[28px] transition-all hover:shadow-md group"
+                        >
+                            {/* Image Section: Fixed small size on mobile, larger on desktop */}
+                            <div className="w-24 h-24 sm:w-36 md:w-40 md:h-40 shrink-0 rounded-[16px] md:rounded-[20px] overflow-hidden bg-gray-100 shadow-sm">
+                                <img
+                                    src={service.image}
+                                    alt={service.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+
+                            {/* Details Section */}
+                            <div className="flex-1 flex flex-col justify-between min-w-0">
+                                <div className="mb-2 md:mb-4">
+                                    <h3 className="text-base md:text-lg font-extrabold text-gray-900 leading-tight mb-1 truncate">
+                                        {service.name}
+                                    </h3>
+                                    <div className="flex items-center gap-1 text-gray-400 text-[10px] md:text-xs mb-1 md:mb-2 font-bold uppercase tracking-wider">
+                                        <HiOutlineLocationMarker className="text-xs md:text-sm shrink-0" />
+                                        <span className="truncate">{service.distance}</span>
+                                    </div>
+                                    <p className="text-[10px] md:text-[11px] text-gray-500 leading-relaxed font-medium line-clamp-2">
+                                        {service.address}
+                                    </p>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-auto">
+                                    <button className="flex items-center justify-center gap-1 md:gap-2 bg-[#8b5cf6] text-white px-3 py-1.5 md:px-5 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold hover:bg-[#7c3aed] transition-colors shadow-sm">
+                                        <HiPhone className="text-xs md:text-sm" />
+                                        <span className="hidden sm:inline">Call</span>
+                                    </button>
+
+                                    <button className="flex items-center gap-1 md:gap-2 text-gray-600 text-[10px] md:text-xs font-bold hover:text-gray-900 transition-colors">
+                                        <RiDirectionLine className="text-sm md:text-lg" />
+                                        <span className="hidden sm:inline">Direction</span>
+                                    </button>
+
+                                    <Link href={`/cremation/reqCremation/${service._id}`} className='ml-auto'>
+                                        <button className="bg-[#1e293b] text-white px-3 py-1.5 md:px-5 md:py-2.5 rounded-full text-[9px] md:text-[10px] lg:text-xs font-bold hover:bg-black transition-colors shadow-sm whitespace-nowrap">
+                                            Request <span className="hidden sm:inline">for Cremation</span> ➔
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </section>
+    );
+};
+
+export default CremationServices;

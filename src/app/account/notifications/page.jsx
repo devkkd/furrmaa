@@ -42,7 +42,7 @@ const AccNotification = () => {
     ];
 
     return (
-        <div className="bg-white border border-gray-100 rounded-[32px] p-6 md:p-10 shadow-sm min-h-[600px]">
+        <div className="bg-white border border-gray-100 md:rounded-[32px] p-4 md:p-10 shadow-sm min-h-[600px]">
             {/* Header */}
             <h1 className="text-3xl font-extrabold text-gray-900 mb-8 tracking-tight">
                 Notifications
